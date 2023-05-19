@@ -9,7 +9,7 @@ export class DemocicdStack extends cdk.Stack {
     const democicdpipeline = new CodePipeline(this, 'demopipelinelogical', {
       selfMutation: false,
       synth: new ShellStep('Synth', {
-        input: CodePipelineSource.gitHub('MGAU44/democicd', 'main' {
+        input: CodePipelineSource.gitHub('MGAU44/democicd', 'main', {
           authentication: cdk.SecretValue.secretsManager('github-token'),
         }),
         commands: [
